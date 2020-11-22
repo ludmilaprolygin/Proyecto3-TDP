@@ -1,0 +1,10 @@
+PROYECTO
+
+- Nivel, debería conocer a Juego? Entonces cuando sube de nivel le manda el aviso cuando sube sin que el Juego le pregunte constantemente.
+- El código que pasé tiene cambios y están comentados con lo que hice. Está el original comentado. 
+	Nivel. Los atributos desde afuera parecen tener más sentido. --> Audio 1.
+	Composite. Las cosas que hereda/implementa. --> Audio 2.
+	Infectado. getDaño() --> Audio 2.
+- Cómo hacer para que se identifique el Player? --> Audio 3. Usar Singleton???? (El siguiente a 3 habla un toque de este patrón y lo que quise decir)
+- Agregarle la flechita de Proyectil <-- Arma en el UML.
+- Qué onda la clase Entidad? 
