@@ -3,8 +3,8 @@ package GUI;
 import javax.swing.ImageIcon;
 
 public class EntidadGrafica {
-	private ImageIcon grafico;
-	private String[] imagenes;
+	protected ImageIcon grafico;
+	protected String[] imagenes; //Arreglo porque pueden ser infectadosBeta comunes, infectados, desinfectados
 
 	public EntidadGrafica() {
 		grafico = new ImageIcon();

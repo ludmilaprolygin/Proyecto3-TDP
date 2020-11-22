@@ -1,6 +1,6 @@
 package Logica;
 
-public abstract class Personaje {
+public abstract class Personaje extends Entidad{
 	protected int cargaViral;
 	protected float velocidad;
 	

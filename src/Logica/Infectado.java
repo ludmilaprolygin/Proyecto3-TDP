@@ -12,7 +12,6 @@ public abstract class Infectado extends Personaje{
 		this.velocidad = velocidad;
 	}
 	
-	//Getters 
 	public int getRango() {
 		return rango;
 	} 
@@ -25,7 +24,6 @@ public abstract class Infectado extends Personaje{
 		return daño;
 	}
 	
-	//Setters 
 	public void setVelocidad(float velocidad) {
 		this.velocidad = velocidad;
 	}

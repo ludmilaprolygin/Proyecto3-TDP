@@ -18,12 +18,10 @@ public final class Player extends Personaje{
 		return player;
 	}
 	
-	//Getters
 	public Arma getArma() {
 		return arma;
 	}
-	
-	//Setters	
+		
 	public void setArma(Arma arma) {
 		this.arma = arma;
 	}

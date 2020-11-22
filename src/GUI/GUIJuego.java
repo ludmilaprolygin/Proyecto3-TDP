@@ -25,10 +25,10 @@ public class GUIJuego extends JFrame {
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
 	protected Juego juego;
-	protected ControlInfectados controlInfectados;
-	protected ControlPlayer controlPlayer;
-	protected JLayeredPane panelMapa;
-	protected JLabel labelPlayer;
+	protected ControlInfectados controlInfectados; //NUEVO
+	protected ControlPlayer controlPlayer; //NUEVO
+	protected JLayeredPane panelMapa; //NUEVO
+	protected JLabel labelPlayer; //NUEVO
 
 	/**
 	 * Launch the application.
@@ -96,7 +96,7 @@ public class GUIJuego extends JFrame {
 		panelMapa.add(labelPlayer, 0);
 	}
 	
-	protected void cargarInfectados() {
+	protected void cargarInfectados() { //NUEVO
 		controlInfectados = new ControlInfectados(this);
 		Thread hiloInfectados = new Thread(controlInfectados);
 		hiloInfectados.start();
@@ -105,20 +105,21 @@ public class GUIJuego extends JFrame {
 	protected ImageIcon actualizar(String nombre, JLabel label) {
 		String ruta = "/Imagenes/"+nombre;
 		ImageIcon original = new ImageIcon(GUIJuego.class.getResource(ruta));
-		ImageIcon icono = new ImageIcon(original.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+		ImageIcon icono = new ImageIcon(original.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
 		label.setIcon(icono);
+		label.repaint();
 		return icono;
 	}
 	
-	public Juego getJuego() {
+	public Juego getJuego() { //NUEVO
 		return juego;
 	}
 	
-	public JLayeredPane getPanelMapa() {
+	public JLayeredPane getPanelMapa() { //NUEVO
 		return panelMapa;
 	}
 	
-	public JLabel getLabelPlayer() {
+	public JLabel getLabelPlayer() { //NUEVO
 		return labelPlayer;
 	}
 	
