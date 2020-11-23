@@ -20,7 +20,7 @@ public class ControlPlayer implements KeyListener{ //NUEVO
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		int distancia = 5;
+		int distancia = Player.instancia().getVelocidad();
 		int componente;
 		Point posicion = labelPlayer.getLocation();
 

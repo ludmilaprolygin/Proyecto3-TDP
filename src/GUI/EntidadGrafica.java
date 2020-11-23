@@ -8,7 +8,7 @@ public class EntidadGrafica {
 
 	public EntidadGrafica() {
 		grafico = new ImageIcon();
-		imagenes = new String[] {  };
+		imagenes = new String[] {};
 	}
 
 	public ImageIcon getGrafico() {
@@ -25,5 +25,12 @@ public class EntidadGrafica {
 
 	public void setImagenes(String[] imagenes) {
 		this.imagenes = imagenes;
+	}
+	
+	public void actualizar(int indice) { //NUEVO
+		if (indice < imagenes.length) {
+			ImageIcon imageIcon = new ImageIcon(this.getClass().getResource(this.imagenes[indice]));
+			grafico.setImage(imageIcon.getImage());
+		}
 	}
 }

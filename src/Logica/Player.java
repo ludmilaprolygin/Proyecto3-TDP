@@ -7,7 +7,7 @@ public final class Player extends Personaje{
 	private Player() {
 		super();
 		cargaViral = 0;
-		velocidad = 0.6f;
+		velocidad = 7;
 		arma = new ArmaSanitaria();
 	}
 	

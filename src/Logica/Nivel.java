@@ -33,6 +33,10 @@ public class Nivel {
 		return numeroTanda;
 	}
 	
+	public void eliminarInfectado(Infectado infectado) {
+		infectados.remove(infectado);
+	}
+	
 	public boolean tieneInfectados() {
 		boolean toReturn = true;
 		if (infectados.isEmpty())
@@ -47,9 +51,9 @@ public class Nivel {
 		for(int i=0; i<cantidadTanda; i++) {
 			valor = random.nextInt(2);
 			if(valor == 0)
-				infectados.add(new Alpha(30*nivel, 20*nivel)); //Tiré números por tirar.
+				infectados.add(new Alpha(15*nivel, 10*nivel));
 			else
-				infectados.add(new Beta(30*nivel, 20*nivel));
+				infectados.add(new Beta(15*nivel, 10*nivel));
 		}
 	}
 	

@@ -2,14 +2,14 @@ package Logica;
 
 public abstract class Personaje extends Entidad{
 	protected int cargaViral;
-	protected float velocidad;
+	protected int velocidad;
 	
 	//Getters
 	public int getCargaViral() {
 		return cargaViral;
 	}
 	
-	public float getVelocidad() {
+	public int getVelocidad() {
 		return velocidad;
 	}
 	
@@ -18,7 +18,7 @@ public abstract class Personaje extends Entidad{
 		this.cargaViral = cargaViral;
 	}
 	
-	public void setVelocidad(float velocidad) {
+	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
 	}
 	

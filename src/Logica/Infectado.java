@@ -2,10 +2,9 @@ package Logica;
 
 public abstract class Infectado extends Personaje{
 	protected int rango;
-	protected float velocidad;
 	protected int daño;
 	
-	public Infectado(int rango, float velocidad) {
+	public Infectado(int rango, int velocidad) {
 		super();
 		cargaViral = 100;
 		this.rango = rango;
@@ -16,15 +15,9 @@ public abstract class Infectado extends Personaje{
 		return rango;
 	} 
 	
-	public float getVelocidad() {
-		return velocidad;
-	}
-	
 	public int getDaño() {
 		return daño;
 	}
 	
-	public void setVelocidad(float velocidad) {
-		this.velocidad = velocidad;
-	}
+	public abstract String getTipo();
 }

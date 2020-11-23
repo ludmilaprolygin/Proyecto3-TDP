@@ -25,10 +25,11 @@ public class GUIJuego extends JFrame {
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
 	protected Juego juego;
-	protected ControlInfectados controlInfectados; //NUEVO
-	protected ControlPlayer controlPlayer; //NUEVO
-	protected JLayeredPane panelMapa; //NUEVO
-	protected JLabel labelPlayer; //NUEVO
+	protected ControlInfectados controlInfectados; 
+	protected ControlPlayer controlPlayer; 
+	protected JLayeredPane panelMapa; 
+	protected JLabel labelPlayer; 
+	protected JProgressBar cargaViral;
 
 	/**
 	 * Launch the application.
@@ -60,7 +61,7 @@ public class GUIJuego extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JProgressBar cargaViral = new JProgressBar();
+		cargaViral = new JProgressBar();
 		cargaViral.setStringPainted(true);
 		cargaViral.setOrientation(SwingConstants.VERTICAL);
 		cargaViral.setBounds(0, 0, 74, 700);
@@ -111,16 +112,20 @@ public class GUIJuego extends JFrame {
 		return icono;
 	}
 	
-	public Juego getJuego() { //NUEVO
+	public Juego getJuego() { 
 		return juego;
 	}
 	
-	public JLayeredPane getPanelMapa() { //NUEVO
+	public JLayeredPane getPanelMapa() { 
 		return panelMapa;
 	}
 	
-	public JLabel getLabelPlayer() { //NUEVO
+	public JLabel getLabelPlayer() { 
 		return labelPlayer;
+	}
+	
+	public JProgressBar getProgreso() { //NUEVO
+		return cargaViral;
 	}
 	
 	private class Adapter extends KeyAdapter {

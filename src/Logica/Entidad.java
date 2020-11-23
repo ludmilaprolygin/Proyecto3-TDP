@@ -5,7 +5,6 @@ import GUI.EntidadGrafica;
 public abstract class Entidad{
 	protected EntidadGrafica entidadGrafica;
 	
-	
 	public Entidad() {
 		entidadGrafica = new EntidadGrafica();
 	}
