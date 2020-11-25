@@ -12,11 +12,11 @@ public class Nivel {
 	protected int numeroTanda;
 	protected List<Infectado> infectados; 
 	
-	public Nivel(Juego juego) {
+	public Nivel(){//Juego juego) {
 		nivel = 1;
 		cantidadTanda = 10;
 		numeroTanda = 1;
-		this.juego = juego;
+		//this.juego = Juego.instancia();
 		setTanda();
 	}
 	

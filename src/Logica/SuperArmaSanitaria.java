@@ -3,6 +3,6 @@ package Logica;
 public class SuperArmaSanitaria extends ArmaSanitaria{
 	
 	public void setMunicion() {
-		getProyectil().setMunicion(getProyectil().getMunicion() + 10);
+		//getProyectil().setMunicion(getProyectil().getMunicion() + 10);
 	}
 }

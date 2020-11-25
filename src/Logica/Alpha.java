@@ -4,10 +4,14 @@ public class Alpha extends Infectado {
 	
 	public Alpha(int rango, int velocidad) {
 		super(rango, velocidad);
-		daño = 20;
+		setDaño();
 	}
 
 	public String getTipo() {
 		return "Alpha";
+	}
+	
+	protected void setDaño() {
+		daño = 6;
 	}
 }

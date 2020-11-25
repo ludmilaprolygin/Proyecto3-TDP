@@ -29,4 +29,7 @@ public final class Player extends Personaje{
 	public void disparar() {
 		arma.disparar();
 	}
+
+	@Override
+	public void jugar() {}
 }

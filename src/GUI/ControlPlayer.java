@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 import Logica.Player;
 
-public class ControlPlayer implements KeyListener{ //NUEVO
+public class ControlPlayer implements KeyListener{
 	protected GUIJuego gui;
 	protected JLabel labelPlayer;
 	
@@ -37,7 +37,6 @@ public class ControlPlayer implements KeyListener{ //NUEVO
         else if (key == KeyEvent.VK_UP) {
         	Player player = Player.instancia();
         	player.disparar();
-            //disparar gráfico
         }
         
         labelPlayer.setLocation(posicion);

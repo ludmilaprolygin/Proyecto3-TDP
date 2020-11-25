@@ -4,6 +4,10 @@ public abstract class Personaje extends Entidad{
 	protected int cargaViral;
 	protected int velocidad;
 	
+	public Personaje() {
+		super();
+	}
+	
 	//Getters
 	public int getCargaViral() {
 		return cargaViral;

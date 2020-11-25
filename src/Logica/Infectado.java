@@ -20,4 +20,18 @@ public abstract class Infectado extends Personaje{
 	}
 	
 	public abstract String getTipo();
+	
+	protected abstract void setDaño();
+	
+	public void jugar() { //Queda la responsabilidad de que se salga del JFrame para afuera
+		int movimiento = entidadGrafica.getPosY() + velocidad;
+		Player player = Player.instancia();
+		entidadGrafica.setPosY(movimiento);
+		if(player.getEntidadGrafica().getPosY()-rango <= entidadGrafica.getPosY()) {
+			player.setCargaViral(player.getCargaViral() - daño);
+			daño = 0;
+		}	
+		else
+			setDaño();
+	}
 }

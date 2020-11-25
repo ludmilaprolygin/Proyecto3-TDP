@@ -1,8 +1,10 @@
 package Logica;
 
 public class PocionEspecial extends ObjetoPrecioso{
-	
-	public PocionEspecial() {
+
+	@Override
+	public void jugar() {
+		// TODO Auto-generated method stub
 		player.setCargaViral(100);
 	}
 }

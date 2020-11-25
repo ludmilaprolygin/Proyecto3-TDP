@@ -1,12 +1,10 @@
 package Logica;
 
 public class ArmaSanitaria extends Arma{
-	
-	public ArmaSanitaria() {
-		proyectil = new ProyectilArmaSanitaria();
-	} 
-	
+
+	@Override
 	public void disparar() {
-		//Mandar los proyectilcitos gráficamente ???
+		// TODO Auto-generated method stub
+		proyectil = new ProyectilArmaSanitaria();
 	}
 }

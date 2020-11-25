@@ -4,17 +4,10 @@ package Logica;
 
 public class EfectoCuarentena extends EfectoTemporal{
 	protected Nivel nivel;
-	
-	public EfectoCuarentena(Nivel nivel) {
-		super();
-		/*
-		ArrayList<Infectado> infectados;
-		this.nivel = nivel;
-		infectados = nivel.getInfectados().getInfectados();
-		/*
-		for(Infectado infectado : infectados) //Parte gráfica
-			infectado.desplazar(false);
-		*/	
-		//Thread ??? Hacer un hold del tiempo y dsp atr vuelve
+
+	@Override
+	public void jugar() {
+		// TODO Auto-generated method stub
+		//List<Infectado> infectados = nivel.getTanda();
 	}
 }

@@ -2,13 +2,20 @@ package Logica;
 
 public abstract class Proyectil extends Entidad{
 	protected int municion;
-	protected float velocidad;
+	protected int velocidad;
+	
+	public Proyectil() {
+		super();
+		Player player = Player.instancia();
+		entidadGrafica.setPosX(player.getEntidadGrafica().getPosX());
+		entidadGrafica.setPosY(player.getEntidadGrafica().getPosY());
+	}
 	
 	//Getters
 	public int getMunicion() {
 		return municion;
 	}
-	public float getVelocidad() {
+	public int getVelocidad() {
 		return velocidad;
 	}
 	
@@ -16,7 +23,7 @@ public abstract class Proyectil extends Entidad{
 	public void setMunicion(int municion) {
 		this.municion = municion;
 	}
-	public void setVelocidad(float velocidad) {
+	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
 	}
 }

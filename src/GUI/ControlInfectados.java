@@ -16,7 +16,7 @@ public class ControlInfectados implements Runnable{
 			"BETA2Infectado.png", "BETA2Desinfectado.png", "BETA2Comun.png"};
 	protected GUIJuego gui;
 	protected List<JLabel> labelsInfectados;
-	protected List<Infectado> infectados; //NUEVO
+	protected List<Infectado> infectados; 
 	
 	public ControlInfectados(GUIJuego gui) {
 		this.gui = gui;
@@ -32,27 +32,7 @@ public class ControlInfectados implements Runnable{
 				labelsInfectados.add(new JLabel(""));
 				cargar(infectado, ((LinkedList<JLabel>) labelsInfectados).getLast());
 								
-				Thread.sleep(3000);
-				
-				for(JLabel labelInfectado : labelsInfectados) {
-					int index = labelsInfectados.indexOf(labelInfectado);
-					mover(infectados.get(index));
-				}
-			}
-			
-			while(!infectados.isEmpty()) {
-				Infectado infectado = ((LinkedList<Infectado>) infectados).getFirst();
-				Infectado siguiente, ultimo;
-				int index;
-				ultimo = ((LinkedList<Infectado>) infectados).getLast();
-				while(infectado != ultimo) {
-					index = infectados.indexOf(infectado);
-					siguiente = infectados.get(index+1);
-					mover(infectado);
-					infectado = siguiente;
-				}
-				if(infectado==ultimo)
-					mover(infectado);
+				Thread.sleep(5000);
 			}
 		}
 		catch(InterruptedException e) {}
@@ -60,36 +40,20 @@ public class ControlInfectados implements Runnable{
 	
 	protected void cargar(Infectado infectado, JLabel labelInfectado) { 
 		Random random = new Random();
-		int posX;
+		int posX = random.nextInt(gui.getPanelMapa().getWidth() - labelInfectado.getWidth());
 		actualizar(infectado);
-		posX = random.nextInt(gui.getPanelMapa().getWidth() - labelInfectado.getWidth());
+		infectado.getEntidadGrafica().setPosX(posX);
+		infectado.getEntidadGrafica().setPosY(0);
 		labelInfectado.setBounds(posX, 0, 90, 100);
 		gui.actualizar(infectado.getEntidadGrafica().getImagenes()[0], labelInfectado);
 		gui.getPanelMapa().add(labelInfectado, 0);
 	}
 	
-	protected void mover(Infectado infectado){
-		int movimiento, index;
-		JLabel labelInfectado;
-		index = infectados.indexOf(infectado);
-		labelInfectado = labelsInfectados.get(index);
-		movimiento = labelInfectado.getY() + infectado.getVelocidad();
-		if(movimiento < gui.getPanelMapa().getHeight()) {
-			labelInfectado.setBounds(labelInfectado.getX(), movimiento, 90, 100);
-		}	
-		else if (infectado.getCargaViral()<=0){
-			gui.getJuego().getNivel().eliminarInfectado(infectado);
-			labelInfectado.setVisible(false);
-			labelsInfectados.remove(labelInfectado);
-		}
-		else {
-			labelInfectado.setBounds(labelInfectado.getX(), 0, 90, 100);
-		}	
-		
-		//actualizar la entidad gráfica del infectado
+	public List<JLabel> getLabels(){
+		return labelsInfectados;
 	}
 	
-	protected void actualizar(Infectado infectado) { //NUEVO
+	protected void actualizar(Infectado infectado) {
 		Random random = new Random();
 		int valor;
 		String tipo = infectado.getTipo();
