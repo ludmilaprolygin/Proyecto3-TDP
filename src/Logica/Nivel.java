@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.Random;
 
-
 public class Nivel {
 	protected Juego juego;
 	protected int nivel;
@@ -12,11 +11,11 @@ public class Nivel {
 	protected int numeroTanda;
 	protected List<Infectado> infectados; 
 	
-	public Nivel(){//Juego juego) {
+	public Nivel(Juego juego) {
 		nivel = 1;
 		cantidadTanda = 10;
 		numeroTanda = 1;
-		//this.juego = Juego.instancia();
+		this.juego = juego;
 		setTanda();
 	}
 	
@@ -35,6 +34,7 @@ public class Nivel {
 	
 	public void eliminarInfectado(Infectado infectado) {
 		infectados.remove(infectado);
+		juego.removeEntidad(infectado);
 	}
 	
 	public boolean tieneInfectados() {
@@ -54,6 +54,7 @@ public class Nivel {
 				infectados.add(new Alpha(15*nivel, 10*nivel));
 			else
 				infectados.add(new Beta(15*nivel, 10*nivel));
+			juego.addEntidad(((LinkedList<Infectado>) infectados).getLast());
 		}
 	}
 	

@@ -1,11 +1,14 @@
 package Logica;
 
+import java.util.List;
+
 public final class Player extends Personaje{
 	protected Arma arma;
 	protected static Player player;
 	
 	private Player() {
 		super();
+		visitor = new VisitorPlayer(this);
 		cargaViral = 0;
 		velocidad = 7;
 		arma = new ArmaSanitaria();
@@ -32,4 +35,16 @@ public final class Player extends Personaje{
 
 	@Override
 	public void jugar() {}
+
+	@Override
+	public List<Entidad> detectarColisiones() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void aceptar(Visitor v) {
+		// TODO Auto-generated method stub
+		v.visitarPlayer(this);
+	}
 }

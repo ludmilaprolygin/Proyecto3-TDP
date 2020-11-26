@@ -37,6 +37,7 @@ public class ControlPlayer implements KeyListener{
         else if (key == KeyEvent.VK_UP) {
         	Player player = Player.instancia();
         	player.disparar();
+        	gui.getJuego().addEntidad(player.getArma().getProyectil());
         }
         
         labelPlayer.setLocation(posicion);

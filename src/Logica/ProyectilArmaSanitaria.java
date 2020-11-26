@@ -1,5 +1,7 @@
 package Logica;
 
+import java.util.List;
+
 public class ProyectilArmaSanitaria extends Proyectil{
 	
 	public ProyectilArmaSanitaria() {
@@ -9,12 +11,8 @@ public class ProyectilArmaSanitaria extends Proyectil{
 	}
 
 	@Override
-	public void jugar() {
+	public List<Entidad> detectarColisiones() {
 		// TODO Auto-generated method stub
-		//Relación con el Visitor!!!
-		int posInicial = entidadGrafica.getPosY();
-		entidadGrafica.setPosY(posInicial - velocidad);
-		//if(entidadGrafica.getPosY()==0) 
-			//Juego.instancia().removeEntidad(this);
+		return null;
 	}
 }

@@ -6,6 +6,7 @@ public abstract class Proyectil extends Entidad{
 	
 	public Proyectil() {
 		super();
+		visitor = new VisitorProyectil(this);
 		Player player = Player.instancia();
 		entidadGrafica.setPosX(player.getEntidadGrafica().getPosX());
 		entidadGrafica.setPosY(player.getEntidadGrafica().getPosY());
@@ -25,5 +26,21 @@ public abstract class Proyectil extends Entidad{
 	}
 	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
+	}
+	
+	@Override
+	public void jugar() {
+		// TODO Auto-generated method stub
+		//Relación con el Visitor!!! --> Como eliminarlo de la lista de entidades
+		int posInicial = entidadGrafica.getPosY();
+		entidadGrafica.setPosY(posInicial - velocidad);
+		//if(entidadGrafica.getPosY()==0) 
+			//Juego.instancia().removeEntidad(this);
+	}
+	
+	@Override
+	public void aceptar(Visitor v) {
+		// TODO Auto-generated method stub
+		v.visitarProyectil(this);
 	}
 }

@@ -1,5 +1,7 @@
 package Logica;
 
+import java.util.List;
+
 public class EfectoSuperArmaSanitaria extends EfectoTemporal{
 	protected Player player;
 	
@@ -15,5 +17,11 @@ public class EfectoSuperArmaSanitaria extends EfectoTemporal{
 		player.setArma(nuevaArma);
 		//Thread ??? Hacer un hold del tiempo
 		player.setArma(armaPlayer);
+	}
+
+	@Override
+	public List<Entidad> detectarColisiones() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

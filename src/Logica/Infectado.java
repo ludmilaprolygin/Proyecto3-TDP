@@ -6,6 +6,7 @@ public abstract class Infectado extends Personaje{
 	
 	public Infectado(int rango, int velocidad) {
 		super();
+		//Juego.instancia().addEntidad(this);
 		cargaViral = 100;
 		this.rango = rango;
 		this.velocidad = velocidad;
@@ -27,6 +28,7 @@ public abstract class Infectado extends Personaje{
 		int movimiento = entidadGrafica.getPosY() + velocidad;
 		Player player = Player.instancia();
 		entidadGrafica.setPosY(movimiento);
+		
 		if(player.getEntidadGrafica().getPosY()-rango <= entidadGrafica.getPosY()) {
 			player.setCargaViral(player.getCargaViral() - daño);
 			daño = 0;

@@ -87,6 +87,11 @@ public class GUIJuego extends JFrame {
 		contentPane.add(cargaViral);
 		
 		juego = new Juego();
+		juego.addEntidad(Player.instancia());
+		
+		for(int i=0; i<juego.getEntidades().size(); i++)
+			System.out.println(i+1);
+		
 		generarMapa();
 		controlPlayer = new ControlPlayer(this);
 		addKeyListener(new Adapter());
@@ -113,7 +118,6 @@ public class GUIJuego extends JFrame {
 		
 		//Setear la carga del player
 		cargaViral.setValue(Player.instancia().getCargaViral());
-		
 	}
 	
 	protected void cargarInfectados() { 
