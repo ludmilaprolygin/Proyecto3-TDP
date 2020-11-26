@@ -2,21 +2,17 @@ package GUI;
 
 import java.awt.EventQueue;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Logica.Juego;
-import Logica.Player;
+import Logica.*;
 import javazoom.jl.decoder.JavaLayerException;
 
 import javax.swing.JLabel;
@@ -24,10 +20,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 
 public class GUIJuego extends JFrame {
@@ -40,7 +34,8 @@ public class GUIJuego extends JFrame {
 	protected Juego juego;
 	protected Music music;
 	protected ControlInfectados controlInfectados; 
-	protected ControlPlayer controlPlayer; 
+	protected ControlPlayer controlPlayer;
+	protected ControlEntidades controlEntidades;
 	protected JLayeredPane panelMapa; 
 	protected JLabel labelPlayer; 
 	protected JProgressBar cargaViral;
@@ -86,8 +81,8 @@ public class GUIJuego extends JFrame {
 		cargaViral.setBounds(0, 39, 74, 756);
 		contentPane.add(cargaViral);
 		
-		juego = new Juego();
-		juego.addEntidad(Player.instancia());
+		juego = Juego.instancia();
+		juego.setNivel(new Nivel()); 
 		
 		for(int i=0; i<juego.getEntidades().size(); i++)
 			System.out.println(i+1);
@@ -97,6 +92,9 @@ public class GUIJuego extends JFrame {
 		addKeyListener(new Adapter());
 		cargarInfectados();
 		cargarMusica();
+		controlEntidades = new ControlEntidades(this);
+		Thread hilo = new Thread(controlEntidades);
+		hilo.start();
 	}
 	
 	protected void generarMapa(){		

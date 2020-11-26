@@ -1,27 +1,47 @@
 package GUI;
 
-import javax.swing.ImageIcon;
+import java.awt.Point;
 
-public class EntidadGrafica {
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class EntidadGrafica extends JLabel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected ImageIcon grafico;
 	protected String[] imagenes; //Arreglo porque pueden ser infectadosBeta comunes, infectados, desinfectados
-	protected int posX, posY;
+	protected Point punto;
 	
 	public EntidadGrafica() {
 		grafico = new ImageIcon();
 		imagenes = new String[] {};
 	}
+	
+	public EntidadGrafica(int posX, int posY) {
+		this();
+		getLocation().x = posX;
+		getLocation().y = posY;
+	}
 
 	public void setGrafico(ImageIcon grafico) {
 		this.grafico = grafico;
+		setIcon(grafico);
+		setBounds(getPosX(), getPosY(), 90, 100);
 	}
 	
 	public void setPosX(int posX) {
-		this.posX = posX;
+		punto = getLocation();
+		punto.setLocation(posX, punto.y);
+		setLocation(punto);
 	}
 	
 	public void setPosY(int posY) {
-		this.posY = posY;
+		punto = getLocation();
+		punto.setLocation(punto.x, posY);
+
+		setLocation(punto);
 	}
 	
 	public void setImagenes(String[] imagenes) {
@@ -33,11 +53,13 @@ public class EntidadGrafica {
 	}
 	
 	public int getPosX() {
-		return posX;
+		punto = getLocation();
+		return punto.x;
 	}
 	
 	public int getPosY() {
-		return posY;
+		punto = getLocation();
+		return punto.y;
 	}
 
 	public String[] getImagenes() {

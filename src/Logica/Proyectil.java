@@ -6,7 +6,7 @@ public abstract class Proyectil extends Entidad{
 	
 	public Proyectil() {
 		super();
-		visitor = new VisitorProyectil(this);
+		//visitor = new VisitorProyectil(this); Pasar a ProyectilArmaSanitaria
 		Player player = Player.instancia();
 		entidadGrafica.setPosX(player.getEntidadGrafica().getPosX());
 		entidadGrafica.setPosY(player.getEntidadGrafica().getPosY());

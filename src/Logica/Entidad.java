@@ -11,6 +11,7 @@ public abstract class Entidad{
 	public Entidad() {
 		entidadGrafica = new EntidadGrafica();
 		System.out.println("new Entidad()");
+		//Juego.instancia().addEntidad(this);
 	}
 	
 	public EntidadGrafica getEntidadGrafica() {
