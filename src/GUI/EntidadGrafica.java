@@ -40,7 +40,6 @@ public class EntidadGrafica extends JLabel{
 	public void setPosY(int posY) {
 		punto = getLocation();
 		punto.setLocation(punto.x, posY);
-
 		setLocation(punto);
 	}
 	
@@ -53,13 +52,11 @@ public class EntidadGrafica extends JLabel{
 	}
 	
 	public int getPosX() {
-		punto = getLocation();
-		return punto.x;
+		return getX();
 	}
 	
 	public int getPosY() {
-		punto = getLocation();
-		return punto.y;
+		return getY();
 	}
 
 	public String[] getImagenes() {

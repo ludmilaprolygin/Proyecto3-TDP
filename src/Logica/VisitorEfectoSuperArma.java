@@ -1,13 +1,13 @@
 package Logica;
 
-public class VisitorPlayer extends Visitor{
-
-	protected Player player;
+public class VisitorEfectoSuperArma extends Visitor{
 	
-	public VisitorPlayer(Player player) {
-		this.player = player;
-	}
+	protected EfectoSuperArmaSanitaria efecto;
 
+	public VisitorEfectoSuperArma(EfectoSuperArmaSanitaria efecto) {
+		this.efecto = efecto;
+	}
+	
 	@Override
 	public void visitarEnemigoAlpha(Alpha alpha) {
 		// TODO Auto-generated method stub
@@ -49,4 +49,4 @@ public class VisitorPlayer extends Visitor{
 		// TODO Auto-generated method stub
 		
 	}
-	}
+}

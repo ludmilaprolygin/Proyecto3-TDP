@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JLabel;
 
 import Logica.Player;
+import Logica.Proyectil;
 
 public class ControlPlayer implements KeyListener{
 	protected GUIJuego gui;
@@ -26,22 +27,37 @@ public class ControlPlayer implements KeyListener{
 
         if (key == KeyEvent.VK_LEFT) {
         	componente = posicion.x - distancia;
-        	if(!fueraLimite(componente))
+        	if(!fueraLimite(componente)) {
         		posicion.setLocation(componente, posicion.y);
+        		Player.instancia().getEntidadGrafica().setPosX(componente);
+        	}
         }
         else if (key == KeyEvent.VK_RIGHT) {
         	componente = posicion.x + distancia;
-        	if(!fueraLimite(componente))
+        	if(!fueraLimite(componente)) {
         		posicion.setLocation(componente, posicion.y);
+        		Player.instancia().getEntidadGrafica().setPosX(componente);
+        	}	
         }
         else if (key == KeyEvent.VK_UP) {
         	Player player = Player.instancia();
         	player.disparar();
-        	gui.getJuego().addEntidad(player.getArma().getProyectil());
+        	cargar(player.getArma().getProyectil());
         }
         
         labelPlayer.setLocation(posicion);
         gui.actualizar("player.png", labelPlayer);
+	}
+	
+	protected void cargar(Proyectil proyectil) { 
+		EntidadGrafica label = proyectil.getEntidadGrafica();
+		int posX = Player.instancia().getEntidadGrafica().getPosX();
+		int posY = Player.instancia().getEntidadGrafica().getPosY();
+		label.setPosX(posX);
+		label.setPosY(posY);
+		label.setBounds(posX+61, posY-38, 20, 40);
+		gui.actualizar(label.getImagenes()[0], label);
+		gui.getPanelMapa().add(label, 0);
 	}
 	
 	protected boolean fueraLimite(int posX) {

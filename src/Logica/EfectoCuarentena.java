@@ -2,10 +2,13 @@ package Logica;
 
 import java.util.List;
 
-//import java.util.ArrayList;
-
 public class EfectoCuarentena extends EfectoTemporal{
 	protected Nivel nivel;
+	
+	public EfectoCuarentena() {
+		super();
+		visitor = new VisitorEfectoCuarentena(this);
+	}
 
 	@Override
 	public void jugar() {
@@ -17,5 +20,11 @@ public class EfectoCuarentena extends EfectoTemporal{
 	public List<Entidad> detectarColisiones() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void aceptar(Visitor v) {
+		// TODO Auto-generated method stub
+		v.visitarPremioCuarentena(this);
 	}
 }

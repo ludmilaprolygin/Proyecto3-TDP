@@ -24,10 +24,6 @@ public class Alpha extends Infectado {
 		visitor = new VisitorAlpha(this);
 		setDaño();
 	}
-
-	public String getTipo() {
-		return "Alpha";
-	}
 	
 	protected void setDaño() {
 		daño = 6;

@@ -2,6 +2,8 @@ package GUI;
 
 import java.util.List;
 
+import javax.swing.SwingUtilities;
+
 import Logica.*;
 
 public class ControlEntidades implements Runnable{
@@ -11,30 +13,23 @@ public class ControlEntidades implements Runnable{
 	
 	public ControlEntidades(GUIJuego gui) {
 		this.gui = gui;
-		entidades = Juego.instancia().getEntidades();
 	}
-	
-	/*
-	public static ControlEntidades instancia() {
-		if(control == null) {
-			control = new ControlEntidades();
-		}
-		return control;
-	}
-	*/
 	
 	@Override
 	public void run() {
 		//TODO Auto-generated method stub
-		try {
-			Thread.sleep(1000);
-			for(Entidad entidad : entidades) {
-				entidad.jugar();
-				gui.actualizar(entidad.getEntidadGrafica().getGrafico().toString(), entidad.getEntidadGrafica());
-				System.out.println(entidad.getEntidadGrafica().getGrafico().toString());
-			}
-		}
-		catch(InterruptedException e) {}
-		
+		do {
+			entidades = Juego.instancia().getEntidades();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            for(Entidad entidad : entidades) {
+	            SwingUtilities.invokeLater(() -> {
+	                entidad.jugar();
+	            });
+            }  
+        } while (true);
 	}
 }

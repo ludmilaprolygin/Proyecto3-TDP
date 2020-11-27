@@ -1,23 +1,23 @@
 package Logica;
 
-public class VisitorPlayer extends Visitor{
+public class VisitorProyectilArmaSanitaria extends Visitor{
 
-	protected Player player;
+	protected ProyectilArmaSanitaria proyectil;
 	
-	public VisitorPlayer(Player player) {
-		this.player = player;
+	public VisitorProyectilArmaSanitaria(ProyectilArmaSanitaria proyectil) {
+		this.proyectil = proyectil; 
 	}
 
 	@Override
 	public void visitarEnemigoAlpha(Alpha alpha) {
 		// TODO Auto-generated method stub
-		
+		alpha.setCargaViral(alpha.getCargaViral() - proyectil.getPoder());
 	}
 
 	@Override
 	public void visitarEnemigoBeta(Beta beta) {
 		// TODO Auto-generated method stub
-		
+		beta.setCargaViral(beta.getCargaViral() - proyectil.getPoder());
 	}
 
 	@Override
@@ -49,4 +49,4 @@ public class VisitorPlayer extends Visitor{
 		// TODO Auto-generated method stub
 		
 	}
-	}
+}

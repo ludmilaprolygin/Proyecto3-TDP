@@ -1,11 +1,11 @@
 package Logica;
 
-public class VisitorPlayer extends Visitor{
+public class VisitorPocion extends Visitor{
 
-	protected Player player;
+	protected PocionEspecial pocion;
 	
-	public VisitorPlayer(Player player) {
-		this.player = player;
+	public VisitorPocion(PocionEspecial pocion) {
+		this.pocion = pocion;
 	}
 
 	@Override
@@ -49,4 +49,4 @@ public class VisitorPlayer extends Visitor{
 		// TODO Auto-generated method stub
 		
 	}
-	}
+}

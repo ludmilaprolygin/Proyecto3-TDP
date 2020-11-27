@@ -25,10 +25,6 @@ public class Beta extends Infectado{
 		setDaño();
 	}
 	
-	public String getTipo() {
-		return "Beta";
-	}
-	
 	protected void setDaño() {
 		daño = 3;
 	}

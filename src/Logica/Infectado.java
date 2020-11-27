@@ -19,13 +19,10 @@ public abstract class Infectado extends Personaje{
 		return daño;
 	}
 	
-	public abstract String getTipo();
-	
 	protected abstract void setDaño();
 	
 	public void jugar() { 
 		int movimiento = entidadGrafica.getPosY() + velocidad;
-		getEntidadGrafica().setPosY(movimiento);
 		Player player = Player.instancia();
 		int distancia = distancia(player.getEntidadGrafica().getPosX(), player.getEntidadGrafica().getPosY());
 		entidadGrafica.setPosY(movimiento);
@@ -35,13 +32,15 @@ public abstract class Infectado extends Personaje{
 		}	
 		else
 			setDaño();
+		if(entidadGrafica.getY()>700)
+			entidadGrafica.setPosY(0);
 	}
 	
 	protected int distancia(int posXplayer, int posYplayer) {
 		int toReturn;
 		int dx = posXplayer - entidadGrafica.getPosX();
 		int dy = posYplayer - entidadGrafica.getPosY();
-		toReturn = (int) Math.sqrt(dx*dx - dy*dy);
+		toReturn = (int) Math.sqrt(dx*dx + dy*dy);
 		return toReturn;
 	}
 }

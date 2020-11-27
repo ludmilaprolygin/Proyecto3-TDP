@@ -3,7 +3,7 @@ package Logica;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Juego {
+public class Juego{
 	protected Nivel nivel;
 	protected List<Entidad> entidades;
 	protected static Juego juego;
@@ -36,5 +36,6 @@ public class Juego {
 	
 	public void removeEntidad(Entidad entidad) {
 		entidades.remove(entidad);
+		entidad.getEntidadGrafica().setVisible(false);
 	}
 }

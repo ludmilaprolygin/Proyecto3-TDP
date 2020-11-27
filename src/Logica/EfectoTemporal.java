@@ -1,5 +1,3 @@
 package Logica;
 
-public abstract class EfectoTemporal extends Premio{
-
-}
+public abstract class EfectoTemporal extends Premio{}

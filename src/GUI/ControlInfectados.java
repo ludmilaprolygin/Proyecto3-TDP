@@ -22,8 +22,9 @@ public class ControlInfectados implements Runnable{
 		try {
 			for(Infectado infectado : infectados) {
 				cargar(infectado);
+				//Juego.instancia().addEntidad(infectado);
 								
-				Thread.sleep(5000);
+				Thread.sleep(4000);
 			}
 		}
 		catch(InterruptedException e) {}
@@ -38,12 +39,5 @@ public class ControlInfectados implements Runnable{
 		labelInfectado.setBounds(posX, 0, 90, 100);
 		gui.actualizar(infectado.getEntidadGrafica().getImagenes()[0], labelInfectado);
 		gui.getPanelMapa().add(labelInfectado, 0);
-	}
-	
-	public void cuarentena() {
-		try {
-			Thread.sleep(10000);
-		} 
-		catch (InterruptedException e) {}
 	}
 }

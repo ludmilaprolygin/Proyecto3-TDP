@@ -31,7 +31,7 @@ public class GUIJuego extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
-	protected Juego juego;
+	protected static Juego juego;
 	protected Music music;
 	protected ControlInfectados controlInfectados; 
 	protected ControlPlayer controlPlayer;
@@ -83,10 +83,6 @@ public class GUIJuego extends JFrame {
 		
 		juego = Juego.instancia();
 		juego.setNivel(new Nivel()); 
-		
-		for(int i=0; i<juego.getEntidades().size(); i++)
-			System.out.println(i+1);
-		
 		generarMapa();
 		controlPlayer = new ControlPlayer(this);
 		addKeyListener(new Adapter());
@@ -110,7 +106,11 @@ public class GUIJuego extends JFrame {
 		
 		//Cargar el player
 		labelPlayer = new JLabel("");
-		labelPlayer.setBounds(panelMapa.getWidth()/2, 519, 146, 169);
+		Player.instancia().getEntidadGrafica().setPosX(panelMapa.getWidth()/2);
+		int posX = Player.instancia().getEntidadGrafica().getPosX();
+		Player.instancia().getEntidadGrafica().setPosY(590);
+		int posY = Player.instancia().getEntidadGrafica().getPosY();
+		labelPlayer.setBounds(posX, posY, 112, 122);
 		actualizar("player.png", labelPlayer);
 		panelMapa.add(labelPlayer, 0);
 		

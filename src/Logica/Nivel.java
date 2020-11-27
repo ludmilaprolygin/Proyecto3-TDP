@@ -30,7 +30,7 @@ public class Nivel {
 		return numeroTanda;
 	}
 	
-	public void eliminarInfectado(Infectado infectado) {
+	public void eliminarInfectado(Infectado infectado) { //Fijarse
 		infectados.remove(infectado);
 		Juego.instancia().removeEntidad(infectado);
 	}
@@ -49,10 +49,9 @@ public class Nivel {
 		for(int i=0; i<cantidadTanda; i++) {
 			valor = random.nextInt(2);
 			if(valor == 0)
-				infectados.add(new Alpha(15*nivel, 40*nivel));
+				infectados.add(new Alpha(15*nivel, 10*nivel));
 			else
-				infectados.add(new Beta(15*nivel, 40*nivel));
-			Juego.instancia().addEntidad(((LinkedList<Infectado>) infectados).getLast());
+				infectados.add(new Beta(15*nivel, 10*nivel));
 		}
 	}
 	

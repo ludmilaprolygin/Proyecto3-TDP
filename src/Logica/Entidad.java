@@ -10,8 +10,7 @@ public abstract class Entidad{
 	
 	public Entidad() {
 		entidadGrafica = new EntidadGrafica();
-		System.out.println("new Entidad()");
-		//Juego.instancia().addEntidad(this);
+		Juego.instancia().addEntidad(this);
 	}
 	
 	public EntidadGrafica getEntidadGrafica() {
@@ -23,5 +22,4 @@ public abstract class Entidad{
 	public abstract void aceptar(Visitor v);
 	
 	public abstract void jugar();
-	//Ver como era la suplantación del instanceOf para esta parte
 }

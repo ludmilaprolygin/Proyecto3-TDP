@@ -7,11 +7,11 @@ public class VisitorAlpha extends Visitor{
 	public VisitorAlpha(Alpha alpha) {
 		this.alpha = alpha;
 	}
-	
+
 	@Override
 	public void visitarEnemigoAlpha(Alpha alpha) {
 		// TODO Auto-generated method stub
-		//Como se mueve
+		
 	}
 
 	@Override
@@ -27,15 +27,17 @@ public class VisitorAlpha extends Visitor{
 	}
 
 	@Override
-	public void visitarProyectil(Proyectil proyectil) {
+	public void visitarProyectilArmaSanitaria(ProyectilArmaSanitaria proyectil) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void visitarPremio(Premio premio) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarPremioPocion(PocionEspecial premio) {}
 
+	@Override
+	public void visitarPremioCuarentena(EfectoCuarentena efecto) {}
+
+	@Override
+	public void visitarPremioSuperArma(EfectoSuperArmaSanitaria efecto) {}
 }
