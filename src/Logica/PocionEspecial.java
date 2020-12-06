@@ -1,24 +1,29 @@
 package Logica;
 
-import java.util.List;
-
 public class PocionEspecial extends ObjetoPrecioso{
 
 	public PocionEspecial() {
 		super();
 		visitor = new VisitorPocion(this);
 	}
-	
-	@Override
-	public void jugar() {
-		// TODO Auto-generated method stub
-		Player.instancia().setCargaViral(100);
-	}
 
-	@Override
-	public List<Entidad> detectarColisiones() {
-		// TODO Auto-generated method stub
-		return null;
+	public void aplicarEfecto() {
+		Player player = Player.instancia();
+		
+		super.aplicarEfecto();
+		
+		int cargaViral = player.getCargaViral();
+		cargaViral -= cargaViral/3;
+		
+		if(cargaViral<0)
+			cargaViral=0;
+		
+		player.setCargaViral(cargaViral);
+		Juego.instancia().getGUI().getBarraProgreso().setValue(player.getCargaViral());
+	}
+	
+	public String toString() {
+		return "Pocion Especial";
 	}
 
 	@Override

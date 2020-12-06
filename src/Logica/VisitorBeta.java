@@ -23,8 +23,9 @@ public class VisitorBeta extends Visitor{
 	@Override
 	public void visitarPlayer(Player player) {
 		// TODO Auto-generated method stub
-		
-	}
+		if(beta.getCargaViral()>0)
+			player.recibirDaño(beta.getDaño());
+	}	
 
 	@Override
 	public void visitarProyectilArmaSanitaria(ProyectilArmaSanitaria proyectil) {

@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.Image;
 import java.awt.Point;
 
 import javax.swing.ImageIcon;
@@ -63,10 +64,12 @@ public class EntidadGrafica extends JLabel{
 		return imagenes;
 	}
 	
-	public void actualizar(int indice) { 
+	public void actualizar(int indice) {
 		if (indice < imagenes.length) {
-			ImageIcon imageIcon = new ImageIcon(this.getClass().getResource(this.imagenes[indice]));
-			grafico.setImage(imageIcon.getImage());
-		}
+			ImageIcon original = new ImageIcon(GUIJuego.class.getResource("/Imagenes/"+this.imagenes[indice]));
+			ImageIcon icono = new ImageIcon(original.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
+			setIcon(icono);
+			repaint();
+		}	
 	}
 }

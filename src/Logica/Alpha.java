@@ -1,8 +1,6 @@
 package Logica;
 
-import java.util.List;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
 
 public class Alpha extends Infectado {
@@ -13,6 +11,8 @@ public class Alpha extends Infectado {
 		int valor = random.nextInt(2);
 		String[] rutas1	 = {"ALPHA1Infectado.png", "ALPHA1Desinfectado.png", "ALPHA1Comun.png"};
 		String[] rutas2 = {"ALPHA2Infectado.png", "ALPHA2Desinfectado.png", "ALPHA2Comun.png"};
+		
+		daño = 6;
 		if(valor == 0) {
 			entidadGrafica.setImagenes(rutas1);
 			entidadGrafica.setGrafico(new ImageIcon(rutas1[0]));
@@ -22,17 +22,18 @@ public class Alpha extends Infectado {
 			entidadGrafica.setGrafico(new ImageIcon(rutas2[0]));
 		}
 		visitor = new VisitorAlpha(this);
-		setDaño();
 	}
 	
-	protected void setDaño() {
-		daño = 6;
+	protected void setDaño(int d) {
+		daño = d;
 	}
-
-	@Override
-	public List<Entidad> detectarColisiones() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public void recibirDaño(int d) {
+		super.recibirDaño(d);
+		if (cargaViral<=20 && cargaViral>0)
+			velocidad*=2;
+		else if(cargaViral<0)
+			cargaViral=0;
 	}
 
 	@Override

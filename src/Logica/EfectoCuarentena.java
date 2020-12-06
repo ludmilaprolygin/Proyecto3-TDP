@@ -1,25 +1,38 @@
 package Logica;
 
-import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class EfectoCuarentena extends EfectoTemporal{
 	protected Nivel nivel;
+	protected final int tiempo = 10000;
 	
 	public EfectoCuarentena() {
 		super();
 		visitor = new VisitorEfectoCuarentena(this);
 	}
+	
+	public void aplicarEfecto() {
+		super.aplicarEfecto();
+		Juego.instancia().setCuarentenaActiva(true);
+		Timer timer = new Timer();
+		TimerTask tarea = new TimerTask() {
 
-	@Override
-	public void jugar() {
-		// TODO Auto-generated method stub
-		//List<Infectado> infectados = nivel.getTanda();
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Juego.instancia().setCuarentenaActiva(false);
+			}	
+		};
+		timer.schedule(tarea, tiempo);
 	}
-
-	@Override
-	public List<Entidad> detectarColisiones() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public int getTiempo() {
+		return tiempo;
+	}
+	
+	public String toString() {
+		return "Efecto Cuarentena";
 	}
 
 	@Override

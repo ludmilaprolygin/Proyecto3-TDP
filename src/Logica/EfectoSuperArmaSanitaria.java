@@ -1,28 +1,32 @@
 package Logica;
 
-import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class EfectoSuperArmaSanitaria extends EfectoTemporal{
-	
+
 	public EfectoSuperArmaSanitaria() {
+		super();
 		visitor = new VisitorEfectoSuperArma(this);
 	}
 
-	@Override
-	public void jugar() {
-		// TODO Auto-generated method stub
-		Player player = Player.instancia();
-		Arma nuevaArma = new SuperArmaSanitaria();
-		Arma armaPlayer = player.getArma();
-		player.setArma(nuevaArma);
-		//Thread ??? Hacer un hold del tiempo
-		player.setArma(armaPlayer);
-	}
+	public void aplicarEfecto() {
+		super.aplicarEfecto();
+		Player.instancia().setEfectoActivado(true);
+		Timer timer = new Timer();
+		TimerTask tarea = new TimerTask() {
 
-	@Override
-	public List<Entidad> detectarColisiones() {
-		// TODO Auto-generated method stub
-		return null;
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Player.instancia().setEfectoActivado(false);
+			}	
+		};
+		timer.schedule(tarea, 10000);
+	}
+	
+	public String toString() {
+		return "Super Arma Sanitaria";
 	}
 
 	@Override

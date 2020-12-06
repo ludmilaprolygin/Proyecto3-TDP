@@ -11,42 +11,35 @@ public class VisitorProyectilArmaSanitaria extends Visitor{
 	@Override
 	public void visitarEnemigoAlpha(Alpha alpha) {
 		// TODO Auto-generated method stub
-		alpha.setCargaViral(alpha.getCargaViral() - proyectil.getPoder());
+		visitarEnemigo(alpha);
 	}
 
 	@Override
 	public void visitarEnemigoBeta(Beta beta) {
 		// TODO Auto-generated method stub
-		beta.setCargaViral(beta.getCargaViral() - proyectil.getPoder());
+		visitarEnemigo(beta);
+	}
+	
+	protected void visitarEnemigo(Infectado infectado) {
+		if (intersects(infectado.getEntidadGrafica(), proyectil.getEntidadGrafica()) && infectado.getCargaViral() > 0) {
+			infectado.recibirDaño(Player.instancia().getArma().getProyectil().getPoder());
+			proyectil.getEntidadGrafica().setVisible(false);
+			Juego.instancia().removeEntidad(proyectil);
+		}
 	}
 
 	@Override
-	public void visitarPlayer(Player player) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarPlayer(Player player) {}
 
 	@Override
-	public void visitarProyectilArmaSanitaria(ProyectilArmaSanitaria proyectil) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarProyectilArmaSanitaria(ProyectilArmaSanitaria proyectil) {}
 
 	@Override
-	public void visitarPremioPocion(PocionEspecial premio) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarPremioPocion(PocionEspecial premio) {}
 
 	@Override
-	public void visitarPremioCuarentena(EfectoCuarentena efecto) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarPremioCuarentena(EfectoCuarentena efecto) {}
 
 	@Override
-	public void visitarPremioSuperArma(EfectoSuperArmaSanitaria efecto) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarPremioSuperArma(EfectoSuperArmaSanitaria efecto) {}
 }

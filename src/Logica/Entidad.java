@@ -1,7 +1,5 @@
 package Logica;
 
-import java.util.List;
-
 import GUI.EntidadGrafica;
 
 public abstract class Entidad{
@@ -10,14 +8,15 @@ public abstract class Entidad{
 	
 	public Entidad() {
 		entidadGrafica = new EntidadGrafica();
-		Juego.instancia().addEntidad(this);
 	}
 	
 	public EntidadGrafica getEntidadGrafica() {
 		return entidadGrafica;
 	}
 	
-	public abstract List<Entidad> detectarColisiones();
+	public Visitor getVisitor() {
+		return visitor;
+	}
 	
 	public abstract void aceptar(Visitor v);
 	

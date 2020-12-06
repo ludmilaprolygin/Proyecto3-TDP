@@ -9,44 +9,23 @@ public class VisitorPlayer extends Visitor{
 	}
 
 	@Override
-	public void visitarEnemigoAlpha(Alpha alpha) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarEnemigoAlpha(Alpha alpha) {}
 
 	@Override
-	public void visitarEnemigoBeta(Beta beta) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarEnemigoBeta(Beta beta) {}
 
 	@Override
-	public void visitarPlayer(Player player) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarPlayer(Player player) {}
 
 	@Override
-	public void visitarProyectilArmaSanitaria(ProyectilArmaSanitaria proyectil) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarProyectilArmaSanitaria(ProyectilArmaSanitaria proyectil) {}
 
 	@Override
-	public void visitarPremioPocion(PocionEspecial premio) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarPremioPocion(PocionEspecial premio) {}
 
 	@Override
-	public void visitarPremioCuarentena(EfectoCuarentena efecto) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visitarPremioCuarentena(EfectoCuarentena efecto) {}
 
 	@Override
-	public void visitarPremioSuperArma(EfectoSuperArmaSanitaria efecto) {
-		// TODO Auto-generated method stub
-		
-	}
-	}
+	public void visitarPremioSuperArma(EfectoSuperArmaSanitaria efecto) {}
+}

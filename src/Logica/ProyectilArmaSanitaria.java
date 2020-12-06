@@ -1,20 +1,12 @@
 package Logica;
 
-import java.util.List;
-
 public class ProyectilArmaSanitaria extends Proyectil{
 	
-	public ProyectilArmaSanitaria() {
+	public ProyectilArmaSanitaria(int p) {
 		super();
-		visitor = new VisitorProyectilArmaSanitaria(this);
 		velocidad = 50;
-		poder = 20;
-	}
-	
-	@Override
-	public List<Entidad> detectarColisiones() {
-		// TODO Auto-generated method stub
-		return null;
+		poder = p;
+		visitor = new VisitorProyectilArmaSanitaria(this);
 	}
 
 	@Override

@@ -19,11 +19,21 @@ public abstract class Visitor
 	public abstract void visitarPremioCuarentena(EfectoCuarentena efecto);
 	
 	public abstract void visitarPremioSuperArma(EfectoSuperArmaSanitaria efecto);
-	
+
+	public void visitarProyectil(Proyectil proyectil) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public boolean intersects(JLabel labelA, JLabel labelB){
 	    Area areaA = new Area(labelA.getBounds());
 	    Area areaB = new Area(labelB.getBounds());
 
 	    return areaA.intersects(areaB.getBounds2D());
+	}
+	
+	public void visitarPremio(Premio premio) {
+		// TODO Auto-generated method stub
+		
 	}
 }

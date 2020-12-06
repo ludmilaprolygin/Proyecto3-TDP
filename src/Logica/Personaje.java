@@ -8,7 +8,6 @@ public abstract class Personaje extends Entidad{
 		super();
 	}
 	
-	//Getters
 	public int getCargaViral() {
 		return cargaViral;
 	}
@@ -17,12 +16,15 @@ public abstract class Personaje extends Entidad{
 		return velocidad;
 	}
 	
-	//Setters
 	public void setCargaViral(int cargaViral) {
 		this.cargaViral = cargaViral;
 	}
 	
 	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
+	}
+	
+	public void recibirDaño(int d) {
+		cargaViral -= d;
 	}
 }

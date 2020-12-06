@@ -23,7 +23,8 @@ public class VisitorAlpha extends Visitor{
 	@Override
 	public void visitarPlayer(Player player) {
 		// TODO Auto-generated method stub
-		
+		if(alpha.getCargaViral()>0)
+			player.recibirDaño(alpha.getDaño());
 	}
 
 	@Override
