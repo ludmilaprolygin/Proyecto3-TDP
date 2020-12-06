@@ -76,7 +76,8 @@ public class GUIJuego extends JFrame {
 	public GUIJuego(){
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 901, 634);
+		//setBounds(100, 100, 901, 634);
+		setBounds(74, 0, 857, 795);
 		setTitle("Cuarentena forever");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -112,13 +113,13 @@ public class GUIJuego extends JFrame {
 		barraCargaViral.setBackground(Color.GREEN);
 		barraCargaViral.setStringPainted(true);
 		barraCargaViral.setOrientation(SwingConstants.VERTICAL);
-		barraCargaViral.setBounds(0, 43, 74, 553);
+		barraCargaViral.setBounds(0, 43, 74, 667);
 		contentPane.add(barraCargaViral);
 	}
 	
 	protected void generarMapa(){		
 		panelMapa = new JLayeredPane();
-		panelMapa.setBounds(74, 0, 813, 553);
+		panelMapa.setBounds(74, 0, 769, 667);
 		contentPane.add(panelMapa);
 		
 		cargarFondo();
@@ -215,7 +216,7 @@ public class GUIJuego extends JFrame {
 	protected void cargarInformacion() {
 		JPanel panelMostrador = new JPanel();
 		panelMostrador.setBackground(Color.DARK_GRAY);
-		panelMostrador.setBounds(74, 554, 813, 42);
+		panelMostrador.setBounds(75, 668, 768, 42);
 		contentPane.add(panelMostrador);
 		panelMostrador.setLayout(null);
 		
